@@ -112,3 +112,30 @@ Mobile App
 6. Buat data model, menggunakan Json To Kotlin
 7. GET, POST, PUT, DELETE, sesuaikan dengan API
 8. Untuk menampilkan banyak data menggunakan,RecyclerView
+
+
+
+
+
+
+How to make SqlDatabase di laragon
+1. bikin new database di laragon a
+2. bikin 
+      CREATE TABLE 'products' (
+'id' INT NOT_NULL AUTO INCREMENT,
+'name' VARCHAR(50) NOT NULL, 
+'price' INT NOT NULL,
+PRIMARY KEY ('id')
+)
+3. Instal MySql.Data.EntityFramework
+4. hapus <provider> yg atas
+5. bikin ADO.Net / Model a
+6. nambah di connectionString a ="Server=127.0.0.1;Database=tomysql;Uid=root;Pwd=;"
+7. bikin base.OnModelCreating(model.(modelBuilder); di model.cs 
+8. baru buet yg table a tu dibawah
+9. tambahkan DbSet
+       public DbSet<DbSet> Product { get; set; }
+10. baru buet yg coding tampilkan datagridview
+       var products = from p in entities.Products
+       dataGridView1.DataSource = product.ToList();
+11. ubah providerName ="MySql.Data.MySqlClient"
